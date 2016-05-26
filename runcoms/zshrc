@@ -23,10 +23,10 @@ alias jumphost="ssh -A sherlock@172.18.215.80"
 alias console-server="ssh rtp10-mtdlab-cs1.cisco.com"
 
 # Purdue CS
-export MACHINE=pod4-5.cs.purdue.edu
-alias hankinsj="ssh hankinsj@$MACHINE"
-alias sync='rsync --exclude='.git/' -avP ./ hankinsj@$MACHINE:/homes/hankinsj/cs/cs252/`pwd | rev | cut -d '/' -f1 | rev`/'
-alias sync2='rsync --exclude='.git/' -avP hankinsj@$MACHINE:/homes/hankinsj/cs/cs252/`pwd | rev | cut -d '/' -f1 | rev`/ ./'
+export PURDUE_MACHINE=pod4-5.cs.purdue.edu
+alias hankinsj="ssh hankinsj@$PURDUE_MACHINE"
+alias sync='rsync --exclude='.git/' -avP ./ hankinsj@$PURDUE_MACHINE:/homes/hankinsj/cs/cs252/`pwd | rev | cut -d '/' -f1 | rev`/'
+alias sync2='rsync --exclude='.git/' -avP hankinsj@$PURDUE_MACHINE:/homes/hankinsj/cs/cs252/`pwd | rev | cut -d '/' -f1 | rev`/ ./'
 
 # Purdue
 alias boilerpress="ssh hankinsj@dev.boilerpress.itap.purdue.edu"
