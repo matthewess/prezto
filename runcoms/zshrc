@@ -3,11 +3,43 @@
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
+#	Jay Hankins <jay.hankins@outlook.com>
 #
 
 # Source Prezto.
+#######################################################
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+# ZSH Options
+#######################################################
+unsetopt CORRECT
+
+# Aliases
+#######################################################
+# Cisco 
+alias jumphost="ssh -A sherlock@172.18.215.80"
+alias console-server="ssh rtp10-mtdlab-cs1.cisco.com"
+
+# Purdue CS
+export MACHINE=pod4-5.cs.purdue.edu
+alias hankinsj="ssh hankinsj@$MACHINE"
+alias sync='rsync --exclude='.git/' -avP ./ hankinsj@$MACHINE:/homes/hankinsj/cs/cs252/`pwd | rev | cut -d '/' -f1 | rev`/'
+alias sync2='rsync --exclude='.git/' -avP hankinsj@$MACHINE:/homes/hankinsj/cs/cs252/`pwd | rev | cut -d '/' -f1 | rev`/ ./'
+
+# Purdue
+alias boilerpress="ssh hankinsj@dev.boilerpress.itap.purdue.edu"
+
+# Customizations
+alias rm='rm -i'
+eval $(thefuck --alias)
+
+mkcdir ()
+{
+    mkdir -p -- "$1" &&
+      cd -P -- "$1"
+}
+
+alias watcher="fswatch -0 . | xargs -0 -n1 /Users/$USER/syncCS.sh"
+alias updatezp="git pull && git submodule update --init --recursive"
