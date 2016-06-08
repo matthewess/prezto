@@ -15,4 +15,4 @@
   fi
 } &!
 
-command archey || { echo >&2 "Archey is not installed. Install archey for system overview.";}
+command archey 2>/dev/null || { echo >&2 "Archey is not installed. Install archey for system overview.";}
