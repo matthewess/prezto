@@ -38,6 +38,9 @@ alias hankinsj="ssh hankinsj@$PURDUE_MACHINE"
 alias sync='rsync --exclude='.git/' -avP ./ hankinsj@$PURDUE_MACHINE:/homes/hankinsj/cs/cs252/`pwd | rev | cut -d '/' -f1 | rev`/'
 alias sync2='rsync --exclude='.git/' -avP hankinsj@$PURDUE_MACHINE:/homes/hankinsj/cs/cs252/`pwd | rev | cut -d '/' -f1 | rev`/ ./'
 
+# desktop icons
+alias desktop-off=defaults write com.apple.finder CreateDesktop false; killall Finder
+alias desktop-on=defaults write com.apple.finder CreateDesktop true; killall Finder
 
 ##################################################################################
 ###  Customizations                                                            ###
