@@ -1,9 +1,11 @@
-Prezto - Jay's Fork
+Prezto - Matt's Fork
 ===================
 
 This is my fork of Prezto with customized configurations, modules, and themes.
 
 See the original repo and associated readme [here](https://github.com/sorin-ionescu/prezto).
+
+Readme borrowed from [Jay](https://github.com/jay-hankins).
 
 License
 -------
@@ -14,7 +16,7 @@ Copyright (c) 2009-2011 Robby Russell and contributors.
 
 Copyright (c) 2011-2015 Sorin Ionescu and contributors.
 
-Copyright (c) 2016 Jay Hankins
+Copyright (c) 2016 Matthew Ess
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
