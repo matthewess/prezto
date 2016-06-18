@@ -3,7 +3,6 @@
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
-#   Jay Hankins <jay@jayhankins.me>
 #
 
 # Execute code that does not affect the current session in the background.
@@ -15,4 +14,9 @@
   fi
 } &!
 
-command archey 2>/dev/null || { echo >&2 "Archey is not installed. Install archey for system overview.";}
+if (( $+commands[archey] )); then
+  if [[ -t 0 || -t 1 ]]; then
+    archey
+    print
+  fi
+fi

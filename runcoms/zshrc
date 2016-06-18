@@ -1,103 +1,47 @@
-###################################################################################
-###################################################################################
-###                                                                             ###
-### Executes commands at the start of an interactive session.                   ###
-###                                                                             ###
-### Authors:                                                                    ###
-###   Sorin Ionescu <sorin.ionescu@gmail.com>                                   ###
-###   Jay Hankins <jay@jayhankins.me>                                           ###
-###                                                                             ###
-###################################################################################
-###################################################################################
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
 
-###################################################################################
-###   Source prezto                                                             ###
-###################################################################################
+# Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-##################################################################################
-###   ZSH options                                                              ###
-##################################################################################
-unsetopt CORRECT
+# Customize to your needs...
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
+EDITOR=vim
+VISUAL=vim
 
-##################################################################################
-###   ZSH aliases                                                              ###
-##################################################################################
-# Cisco 
-alias jumphost="ssh -A sherlock@172.18.215.80"
-alias console-server="ssh rtp10-mtdlab-cs1.cisco.com"
-
-# Purdue CS
-export PURDUE_MACHINE=pod4-5.cs.purdue.edu
-alias hankinsj="ssh hankinsj@$PURDUE_MACHINE"
-
-# rsync aliases
-alias sync='rsync --exclude='.git/' -avP ./ hankinsj@$PURDUE_MACHINE:/homes/hankinsj/cs/cs252/`pwd | rev | cut -d '/' -f1 | rev`/'
-alias sync2='rsync --exclude='.git/' -avP hankinsj@$PURDUE_MACHINE:/homes/hankinsj/cs/cs252/`pwd | rev | cut -d '/' -f1 | rev`/ ./'
-
-# desktop icons
-alias desktop-off='defaults write com.apple.finder CreateDesktop false; killall Finder'
-alias desktop-on='defaults write com.apple.finder CreateDesktop true; killall Finder'
-
-##################################################################################
-###  Customizations                                                            ###
-##################################################################################
-# safe remove command
-alias rm='rm -i'
-
-# thefuck command
 eval $(thefuck --alias)
 
-# watcher script for watching and executing CS sync tool
-alias watcher="fswatch -0 . | xargs -0 -n1 /Users/$USER/syncCS.sh"
+# Aliases
 
-#update zprezto
-alias updatezp="git pull && git submodule update --init --recursive"
-alias subl=sublime
+alias jtest="java org.junit.runner.JUnitCore"
+alias php-osx="/usr/bin/php"
+alias php="/usr/local/Cellar/php56/5.6.6/bin/php"
+alias csc="sshfs -o IdentityFile=~/.ssh/id_rsa mess@xinu08.cs.purdue.edu: ~/Documents/cslab && cd ~/Documents/cslab"
+alias csd="cd ~ && diskutil umount ~/Documents/cslab"
+alias sbdir="cd ~/Library/Application\ Support/Steam/steamapps/common/Starbound/"
+alias sublime="open -a \"Sublime Text\""
+alias rsync="noglob rsync -azvh"
+alias sidebyside="pr -w $COLUMNS -m -t"
+alias sbs="sidebyside"
 
-# takes you to the last directory you were in
-alias cd-='cd "$OLDPWD"'
-
-
-##################################################################################
-###    Custom Functions                                                        ###
-##################################################################################
-# smart extraction
-extract () {
-  if [ -f $1 ] ; then
-      case $1 in
-          *.tar.bz2)   tar xvjf $1    ;;
-          *.tar.xz)    tar xf   $1    ;;
-          *.tar.gz)    tar xvzf $1    ;;
-          *.bz2)       bunzip2 $1     ;;
-          *.rar)       unrar x $1     ;;
-          *.gz)        gunzip $1      ;;
-          *.tar)       tar xvf $1     ;;
-          *.tbz2)      tar xvjf $1    ;;
-          *.tgz)       tar xvzf $1    ;;
-          *.zip)       unzip $1       ;;
-          *.Z)         uncompress $1  ;;
-          *.7z)        7z x $1        ;;
-          *)           echo "don't know how to extract '$1'..." ;;
-      esac
-  else
-      echo "'$1' is not a valid file!"
-  fi
+pm() {
+    stat -f "%N: %A %Sp %z bytes" $@;
 }
 
-# make and change to directory
-mkcdir () {
-    mkdir -p -- "$1" &&
-      cd -P -- "$1"
+galias() {
+    alias | grep "git $@";
 }
 
-# `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
-# the `.git` directory, listing directories first. The output gets piped into
-# `less` with options to preserve color and line numbers, unless the output is
-# small enough for one screen.
-function tre() {
-  tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
-}
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
