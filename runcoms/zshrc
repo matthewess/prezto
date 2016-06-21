@@ -54,7 +54,7 @@ grep() {
 }
 
 #set up a docker terminal
-dterm() {
+dup() {
     docker-machine start default
     eval $(docker-machine env default)
 }
