@@ -38,15 +38,19 @@ alias dc="docker-compose"
 alias dcl="docker-compose logs"
 alias dm="docker-machine"
 
+#print info about a file
 pm() {
     stat -f "%N: %A %Sp %z bytes" $@;
 }
 
+#search for a git alias
 galias() {
     alias | grep "git $@";
 }
 
+#set up a docker terminal
 dterm() {
+    docker-machine start default
     eval $(docker-machine env default)
 }
 
