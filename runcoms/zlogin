@@ -14,9 +14,4 @@
   fi
 } &!
 
-if (( $+commands[archey] )); then
-  if [[ -t 0 || -t 1 ]]; then
-    archey
-    print
-  fi
-fi
+archey

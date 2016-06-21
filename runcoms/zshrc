@@ -13,7 +13,7 @@ fi
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/base16-eighties.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-
+ 
 # Customize to your needs...
 HISTFILE=~/.histfile
 HISTSIZE=10000
@@ -36,8 +36,7 @@ alias sidebyside="pr -w $COLUMNS -m -t"
 alias sbs="sidebyside"
 alias dc="docker-compose"
 alias dcl="docker-compose logs"
-alias dup="open /Applications/Docker/Docker\ Quickstart\ Terminal.app/"
-alias dterm="eval $(docker-machine env default)"
+alias dm="docker-machine"
 
 pm() {
     stat -f "%N: %A %Sp %z bytes" $@;
@@ -45,6 +44,10 @@ pm() {
 
 galias() {
     alias | grep "git $@";
+}
+
+dterm() {
+    eval $(docker-machine env default)
 }
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
