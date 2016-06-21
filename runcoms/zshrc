@@ -27,7 +27,6 @@ eval $(thefuck --alias)
 
 alias jtest="java org.junit.runner.JUnitCore"
 alias php-osx="/usr/bin/php"
-alias php="/usr/local/Cellar/php56/5.6.6/bin/php"
 alias csc="sshfs -o IdentityFile=~/.ssh/id_rsa mess@xinu08.cs.purdue.edu: ~/Documents/cslab && cd ~/Documents/cslab"
 alias csd="cd ~ && diskutil umount ~/Documents/cslab"
 alias sbdir="cd ~/Library/Application\ Support/Steam/steamapps/common/Starbound/"
@@ -35,6 +34,10 @@ alias sublime="open -a \"Sublime Text\""
 alias rsync="noglob rsync -azvh"
 alias sidebyside="pr -w $COLUMNS -m -t"
 alias sbs="sidebyside"
+alias dc="docker-compose"
+alias dcl="docker-compose logs"
+alias dup="open /Applications/Docker/Docker\ Quickstart\ Terminal.app/"
+alias dterm="eval $(docker-machine env default)"
 
 pm() {
     stat -f "%N: %A %Sp %z bytes" $@;
