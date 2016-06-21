@@ -45,13 +45,18 @@ pm() {
 
 #search for a git alias
 galias() {
-    alias | grep "git $@";
+    alias | ack "git $@";
 }
 
 #set up a docker terminal
 dterm() {
     docker-machine start default
     eval $(docker-machine env default)
+}
+
+#remind me to use ack instead of grep!
+grep() {
+    echo "Use ack!"
 }
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
