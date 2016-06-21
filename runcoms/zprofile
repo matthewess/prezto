@@ -84,3 +84,15 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
+
+################## added by gotomark ################
+#                                                   #
+##### loads gotomark preferences if file exists #####
+#                                                   #
+       if [ -f ~/.gotomark/profile.sh ]; then       #
+         source ~/.gotomark/profile.sh              #
+       fi                                           #
+#                                                   #
+#####################################################
+###### https://github.com/whtevn/gotomark ###########
+#####################################################
