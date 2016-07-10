@@ -54,7 +54,7 @@ path=(
   /usr/local/{bin,sbin}
   /opt/bin
   $path
-  $JUNIT_HOME 
+  $JUNIT_HOME
 )
 #
 # Less
@@ -85,14 +85,13 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
-autoload -U +X bashcompinit && bashcompinit
-
 ################## added by gotomark ################
 #                                                   #
 ##### loads gotomark preferences if file exists #####
 #                                                   #
        if [ -f ~/.gotomark/profile.sh ]; then       #
          source ~/.gotomark/profile.sh              #
+         export GOTOMARK=INSTALLED                  #
        fi                                           #
 #                                                   #
 #####################################################

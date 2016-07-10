@@ -37,6 +37,7 @@ alias sbs="sidebyside"
 alias dc="docker-compose"
 alias dcl="docker-compose logs"
 alias dm="docker-machine"
+alias kitten="pushd /Users/matthewess/Development/kitten/dist/build/Kitten/ && ./kitten && popd"
 
 #print info about a file
 pm() {
@@ -45,7 +46,7 @@ pm() {
 
 #search for a git alias
 galias() {
-    alias | ack "git $@";
+    alias | ack "git .*$@.*";
 }
 
 #remind me to use ack instead of grep!
