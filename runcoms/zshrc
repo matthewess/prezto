@@ -21,23 +21,12 @@ SAVEHIST=10000
 EDITOR=vim
 VISUAL=vim
 
-eval $(thefuck --alias)
-
 # Aliases
 
-alias jtest="java org.junit.runner.JUnitCore"
-alias php-osx="/usr/bin/php"
-alias csc="sshfs -o IdentityFile=~/.ssh/id_rsa mess@xinu08.cs.purdue.edu: ~/Documents/cslab && cd ~/Documents/cslab"
-alias csd="cd ~ && diskutil umount ~/Documents/cslab"
-alias sbdir="cd ~/Library/Application\ Support/Steam/steamapps/common/Starbound/"
 alias sublime="open -a \"Sublime Text\""
 alias rsync="noglob rsync -azvh"
 alias sidebyside="pr -w $COLUMNS -m -t"
 alias sbs="sidebyside"
-alias dc="docker-compose"
-alias dcl="docker-compose logs"
-alias dm="docker-machine"
-alias kitten="pushd /Users/matthewess/Development/kitten/dist/build/Kitten/ && ./kitten && popd"
 
 #print info about a file
 pm() {
@@ -52,12 +41,6 @@ galias() {
 #remind me to use ack instead of grep!
 grep() {
     echo "Use ack!"
-}
-
-#set up a docker terminal
-dup() {
-    docker-machine start default
-    eval $(docker-machine env default)
 }
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
