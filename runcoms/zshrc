@@ -27,6 +27,7 @@ alias sublime="open -a \"Sublime Text\""
 alias rsync="noglob rsync -azvh"
 alias sidebyside="pr -w $COLUMNS -m -t"
 alias sbs="sidebyside"
+alias dev="ssh -A interndev1-uswest1adevc"
 
 #print info about a file
 pm() {
@@ -42,5 +43,8 @@ galias() {
 grep() {
     echo "Use ack!"
 }
+
+# fasd
+eval "$(fasd --init auto)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

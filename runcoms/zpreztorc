@@ -37,8 +37,12 @@ zstyle ':prezto:load' pmodule \
   'osx' \
   'git' \
   'node' \
+  'fasd' \
+  'python' \
+  'tmux' \
   'ruby' \
   'rails' \
+  'docker' \
   'syntax-highlighting' \
   'history-substring-search' \
   'prompt'
