@@ -34,6 +34,7 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'archive' \
   'homebrew' \
+  'zsh-iterm-touchbar' \
   'osx' \
   'git' \
   'node' \

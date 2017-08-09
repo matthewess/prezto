@@ -20,6 +20,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 EDITOR=vim
 VISUAL=vim
+DEVBOX=dev11-uswest1cdevc
 
 # Aliases
 
@@ -27,7 +28,12 @@ alias sublime="open -a \"Sublime Text\""
 alias rsync="noglob rsync -azvh"
 alias sidebyside="pr -w $COLUMNS -m -t"
 alias sbs="sidebyside"
-alias dev="ssh -A interndev1-uswest1adevc"
+alias dev="ssh devbox"
+alias mdev="sshfs -p 22 mess@dev11-uswest1cdevc:/nail/home/mess/ ~/Development/devbox -oauto_cache,reconnect,defer_permissions,negative_vncache,volname=devbox"
+alias udev="sudo umount -f ~/Development/devbox"
+alias tm="tmux -CC attach"
+alias tms="tmux -CC new -s yelp"
+alias ack="ag"
 
 #print info about a file
 pm() {
@@ -36,15 +42,18 @@ pm() {
 
 #search for a git alias
 galias() {
-    alias | ack "git .*$@.*";
+    alias | ag "git .*$@.*";
 }
 
-#remind me to use ack instead of grep!
-grep() {
-    echo "Use ack!"
+#search for a docker alias
+dalias() {
+    alias | ag "docker.*$@.*";
 }
 
 # fasd
 eval "$(fasd --init auto)"
+
+# aactivator
+eval "$(aactivator init)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

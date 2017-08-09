@@ -9,7 +9,7 @@
 if (( $+commands[fortune] )); then
   if [[ -t 0 || -t 1 ]]; then
     fortune -s
-    sleep 3
+    sleep 2
     print
   fi
 fi

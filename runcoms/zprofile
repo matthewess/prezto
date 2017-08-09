@@ -53,6 +53,7 @@ path=(
   $HOME/.rbenv/shims
   /usr/local/{bin,sbin}
   /opt/bin
+  /usr/local/mysql/bin
   $path
   $JUNIT_HOME
 )
@@ -96,3 +97,8 @@ fi
 #####################################################
 ###### https://github.com/whtevn/gotomark ###########
 #####################################################
+
+# Setting PATH for Python 3.5
+# The orginal version is saved in .zprofile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
+export PATH
