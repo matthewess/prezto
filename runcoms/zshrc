@@ -11,7 +11,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-eighties.dark.sh"
+export BASE16_SHELL="$HOME/.config/base16-shell/base16-eighties.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
  
 # Customize to your needs...
@@ -23,11 +23,14 @@ VISUAL=vim
 
 # Aliases
 
-alias sublime="open -a \"Sublime Text\""
 alias rsync="noglob rsync -azvh"
 alias sidebyside="pr -w $COLUMNS -m -t"
 alias sbs="sidebyside"
-alias dev="ssh -A interndev1-uswest1adevc"
+alias tmux="tmux2"
+alias tm="agenttmux2 -CC attach"
+alias tms="agenttmux2 -CC new -s yelpdev"
+alias vf="source $BASE16_SHELL"
+alias ack="ag"
 
 #print info about a file
 pm() {
@@ -36,15 +39,12 @@ pm() {
 
 #search for a git alias
 galias() {
-    alias | ack "git .*$@.*";
+    alias | ag "git .*$@.*";
 }
 
-#remind me to use ack instead of grep!
-grep() {
-    echo "Use ack!"
+#search for a docker alias
+dalias() {
+    alias | ag "docker.*$@.*";
 }
-
-# fasd
-eval "$(fasd --init auto)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

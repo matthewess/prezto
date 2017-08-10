@@ -43,18 +43,13 @@ typeset -gU cdpath fpath mailpath path
 # )
 
 # Set the list of directories that Zsh searches for programs.
-export JUNIT_HOME="/opt/junit"
-export CLASSPATH="$CLASSPATH:$JUNIT_HOME/junit-4.12.jar:$JUNIT_HOME/hamcrest-core-1.3.jar"
 export PKG_CONFIG_PATH=/usr/local/Cellar/cairo/1.12.16/lib/pkgconfig/
 export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig
-eval "$(rbenv init -)"
 
 path=(
-  $HOME/.rbenv/shims
   /usr/local/{bin,sbin}
   /opt/bin
   $path
-  $JUNIT_HOME
 )
 #
 # Less

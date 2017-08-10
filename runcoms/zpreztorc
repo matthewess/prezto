@@ -33,15 +33,9 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
   'archive' \
-  'homebrew' \
-  'osx' \
   'git' \
   'node' \
-  'fasd' \
   'python' \
-  'tmux' \
-  'ruby' \
-  'rails' \
   'docker' \
   'syntax-highlighting' \
   'history-substring-search' \
@@ -180,7 +174,7 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
 # Integrate with iTerm2.
-# zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+zstyle ':prezto:module:tmux:iterm' integrate 'yes'
 
 # Set the default session name:
 # zstyle ':prezto:module:tmux:session' name 'YOUR DEFAULT SESSION NAME'
